@@ -1,21 +1,37 @@
+import dayjs from 'dayjs'
 import React from 'react'
-import { IonCard,IonCardHeader, IonCardTitle, IonCardContent
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
 } from '@ionic/react'
+import {calculateBiorhythms} from '../calculations'
+import BiorhythmChart from './BiorhythmChart'
+import './BiorhythmCard.css';
 
- function BiorhythmCard() {
-  return (
-    <IonCard className='ion-text-center'>
-      <IonCardHeader>
-        <IonCardTitle>18 Feb 2020</IonCardTitle>
-      </IonCardHeader>
-      <IonCardContent>
-        <p>Physical: 83%</p>
-        <p>Emotional: 23%</p>
-        <p>Intellectual: 55%</p>
 
-      </IonCardContent>
-    </IonCard>
-  )
+
+function formatDate(isoString){
+  return dayjs(isoString).format('D MMM YYYY');
 }
+
+ function BiorhythmCard({dob, targetDate}) {
+   const {physical, emotional, intellectual} = calculateBiorhythms(dob, targetDate);
+
+    return (
+      <IonCard className='biorhythm-card ion-text-center'>
+        <IonCardHeader>
+          <IonCardTitle>{formatDate(targetDate)}</IonCardTitle>
+        </IonCardHeader>
+        <IonCardContent>
+        <BiorhythmChart dob={dob} targetDate={targetDate}/>
+          <p className="physical">Physical: {physical.toFixed(4)}</p>
+          <p className="emotional">Emotional: {emotional.toFixed(4)}</p>
+          <p className="intellectual">Intellectual: {intellectual.toFixed(4)}</p>
+        </IonCardContent>
+      </IonCard>
+    )
+  }
 
 export default BiorhythmCard;
