@@ -19,7 +19,7 @@ function App() {
   return (
     <IonApp>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="primary">
           <IonTitle>Biorhythms</IonTitle>
             </IonToolbar>
               </IonHeader>
@@ -28,7 +28,7 @@ function App() {
                       <BiorhythmCard dob={dob} targetDate={targetDate}/>
                     }
                   <IonItem>
-                    <IonLabel position="fixed">Date of Birth: </IonLabel>
+                    <IonLabel position="fixed">Birth Date: </IonLabel>
                     <IonDatetime
                     displayFormat="D MMM YYYY"
                       value={dob}
