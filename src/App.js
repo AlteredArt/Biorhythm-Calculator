@@ -37,7 +37,7 @@ function App() {
                   </IonItem>
 
                   <IonItem>
-                    <IonLabel position="fixed">Traget Date: </IonLabel>
+                    <IonLabel position="fixed">Target Date: </IonLabel>
                     <IonDatetime
                       displayFormat="D MMM YYYY"
                       value={targetDate}
