@@ -3,3 +3,7 @@
   --app-emotional-color: red;
   --app-intellectual-color: blue;
 }
+
+body {
+  background-color: violet;
+}
